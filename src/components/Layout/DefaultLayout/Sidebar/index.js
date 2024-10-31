@@ -9,7 +9,7 @@ import { AiFillWarning } from 'react-icons/ai';
 function Sidebar() {
   const [isNone, setIsNone] = useState('none');
   const [isNone2, setIsNone2] = useState('none');
-  // const [isVisible, setIsVisible] = useState(true);
+  const [isFade, setIsFade] = useState('DisplayOn 0.5s ease-in-out forwards');
   const [isFocus, setIsFocus] = useState(false);
   const [isFocus2, setIsFocus2] = useState(false);
   const [isFocus3, setIsFocus3] = useState(false);
@@ -17,7 +17,13 @@ function Sidebar() {
   const [isFocus5, setIsFocus5] = useState(false);
   const [isSelect, setIsSelect] = useState('auto');
   const handleCloseOpenList = () => {
-    setIsNone((pre) => (pre === 'none' ? 'flex' : 'none'));
+    if (isNone === 'none') {
+      setIsFade('DisplayOn 0.5s ease-in-out forwards');
+      setIsNone((pre) => (pre === 'none' ? 'flex' : 'none'));
+    } else {
+      setIsFade('DisplayOff 0.5s ease-in-out forwards');
+      setIsNone((pre) => (pre === 'none' ? 'flex' : 'none'));
+    }
   };
   const handleFocus = () => {
     setIsFocus((pre) => !pre);
@@ -93,7 +99,13 @@ function Sidebar() {
     }
   };
   const handleCloseOpenAdd = (e) => {
-    setIsNone2((pre) => (pre === 'none' ? 'block' : 'none'));
+    if (isNone2 === 'none') {
+      setIsFade('DisplayOn 0.5s ease-in-out forwards');
+      setIsNone2((pre) => (pre === 'none' ? 'flex' : 'none'));
+    } else {
+      setIsFade('DisplayOff 0.5s ease-in-out forwards');
+      setIsNone2((pre) => (pre === 'none' ? 'flex' : 'none'));
+    }
   };
   return (
     <>
@@ -117,17 +129,16 @@ function Sidebar() {
         </div>
         <div className={styles.dichvu}></div>
       </div>
-      <div className={styles.danhSach} style={{ display: isNone }} onClick={handleCloseOpenList}>
+      <div
+        className={styles.danhSach}
+        style={{ display: isNone, animation: isFade }}
+        onClick={handleCloseOpenList}
+      >
         <div
           className={styles.containerList}
           onClick={(e) => {
             e.stopPropagation();
           }}
-          // style={{
-          //   animation: isVisible
-          //     ? 'DisplayOn 0.3s ease-in-out forwards'
-          //     : ' DisplayOff 0.3s ease-in-out forwards',
-          // }}
         >
           <div className={styles.headerList}>
             <div className={styles.headerIcon}>
@@ -169,7 +180,7 @@ function Sidebar() {
       </div>
       <div
         className={styles.addNhatroContainer}
-        style={{ display: isNone2 }}
+        style={{ display: isNone2, animation: isFade }}
         onClick={handleCloseOpenAdd}
       >
         <div className={styles.containerList} onClick={(e) => e.stopPropagation()}>
@@ -400,7 +411,7 @@ function Sidebar() {
                 </label>
               </div>
               <div className={styles.checkBox5}>
-                <input type="checkbox" id="message" checked />
+                <input type="checkbox" id="message" defaultChecked />
                 <label htmlFor="message">
                   <h3>Gửi tin nhắn tự động cho khách thuê</h3>
                   <p>Giửi tin nhắn SMS tự động cho khách thuê sau khi lập phiếu</p>
@@ -461,7 +472,9 @@ function Sidebar() {
             </div>
           </div>
           <div className={styles.footerList}>
-            <div className={styles.close}>Đóng</div>
+            <div className={styles.close} onClick={handleCloseOpenAdd}>
+              Đóng
+            </div>
             <div className={styles.add}>
               <div className={styles.addIcon}></div>
               <CgAdd />
