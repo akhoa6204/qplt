@@ -8,6 +8,7 @@ import { AiFillWarning } from 'react-icons/ai';
 
 function Sidebar() {
   const [isNone, setIsNone] = useState('none');
+  const [isNone2, setIsNone2] = useState('none');
   // const [isVisible, setIsVisible] = useState(true);
   const [isFocus, setIsFocus] = useState(false);
   const [isFocus2, setIsFocus2] = useState(false);
@@ -91,7 +92,9 @@ function Sidebar() {
       setIsSelect('manual');
     }
   };
-
+  const handleCloseOpenAdd = (e) => {
+    setIsNone2((pre) => (pre === 'none' ? 'block' : 'none'));
+  };
   return (
     <>
       <div className={styles.container}>
@@ -104,7 +107,13 @@ function Sidebar() {
             <p>Đang quản lý</p>
             <p style={{ color: '#0e844a' }}>Nhà trọ Anh Khoa</p>
           </div>
-          <CgAdd className={styles.iconPlus} />
+          <CgAdd
+            className={styles.iconPlus}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleCloseOpenAdd();
+            }}
+          />
         </div>
         <div className={styles.dichvu}></div>
       </div>
@@ -158,8 +167,12 @@ function Sidebar() {
           </div>
         </div>
       </div>
-      <div className={styles.addNhatroContainer}>
-        <div className={styles.containerList}>
+      <div
+        className={styles.addNhatroContainer}
+        style={{ display: isNone2 }}
+        onClick={handleCloseOpenAdd}
+      >
+        <div className={styles.containerList} onClick={(e) => e.stopPropagation()}>
           <div className={styles.headerList}>
             <div className={clsx(styles.headerIcon, styles.homeIcon)}>
               <CgHomeAlt />
@@ -167,10 +180,7 @@ function Sidebar() {
             <div className={styles.content}>
               <h2>Thêm nhà trọ</h2>
             </div>
-            <div
-              className={clsx(styles.headerIcon, styles.closeIcon)}
-              onClick={handleCloseOpenList}
-            >
+            <div className={clsx(styles.headerIcon, styles.closeIcon)} onClick={handleCloseOpenAdd}>
               <CgClose />
             </div>
           </div>
@@ -453,9 +463,8 @@ function Sidebar() {
           <div className={styles.footerList}>
             <div className={styles.close}>Đóng</div>
             <div className={styles.add}>
-              <div className={styles.addIcon}>
-                <CgAdd />
-              </div>
+              <div className={styles.addIcon}></div>
+              <CgAdd />
               <p>Thêm nhà trọ</p>
             </div>
           </div>

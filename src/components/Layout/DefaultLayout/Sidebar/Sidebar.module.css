@@ -476,7 +476,8 @@ input#nameNhaTro:focus,
 }
 
 .footerList {
-  position: fixed;
+  position: sticky;
+  bottom: 0;
   z-index: 5;
   width: 800px;
   padding: 12px;
