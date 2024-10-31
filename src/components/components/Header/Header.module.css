@@ -1,0 +1,90 @@
+.container {
+  padding: 0 12px;
+  display: flex;
+  background-color: #20c997;
+  align-content: center;
+  gap: 5px;
+}
+.logo {
+  flex-basis: 20%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.name h1 {
+  color: white;
+  background-color: #0e844a;
+  padding: 8px 16px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+.menu {
+  flex-basis: 80%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.box {
+  padding: 8px 16px;
+  margin: 10px 0;
+  border-radius: 10px;
+  background-color: #30ae71;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+}
+.box:hover {
+  background-color: #0e844a;
+  .text {
+    border-bottom: 0.8px solid white;
+  }
+}
+.box.active {
+  background-color: #0e844a;
+}
+.box.active .text {
+  border-bottom: 0.8px solid white;
+}
+.box .text {
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+.box .icon {
+  font-size: 25px;
+}
+.box .totalNotice {
+  position: absolute;
+  background-color: rgb(255, 152, 0);
+  padding: 1.85px 7.15px;
+  border-radius: 10px;
+  top: -10px;
+  right: -10px;
+  animation: animationNote 1s infinite ease-in-out both;
+}
+.box .template {
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  top: calc(100% + 10px);
+  right: 0;
+  width: 450px;
+}
+.loading_container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loading {
+  width: 15%;
+}
+@keyframes animationNote {
+  to {
+    padding: 2.35px 7.65px;
+  }
+}
