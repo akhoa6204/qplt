@@ -3,7 +3,7 @@ import styles from './Sidebar.module.css';
 import { CgHomeAlt, CgAdd, CgClose, CgSoftwareUpload, CgSoftwareDownload } from 'react-icons/cg';
 import { BsFillTrash3Fill, BsArrowRight } from 'react-icons/bs';
 import { FaEdit } from 'react-icons/fa';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AiFillWarning } from 'react-icons/ai';
 
 function Sidebar() {
@@ -16,6 +16,7 @@ function Sidebar() {
   const [isFocus4, setIsFocus4] = useState(false);
   const [isFocus5, setIsFocus5] = useState(false);
   const [isSelect, setIsSelect] = useState('auto');
+  const [isMaxWidth, setIsMaxWidth] = useState(0);
   const handleCloseOpenList = () => {
     if (isNone === 'none') {
       setIsFade('DisplayOn 0.5s ease-in-out forwards');
@@ -127,7 +128,64 @@ function Sidebar() {
             }}
           />
         </div>
-        <div className={styles.dichvu}></div>
+        <div className={styles.dichvuContainer}>
+          <div className={styles.dichvu}>
+            <div className={clsx(styles.dichvuBox, { [styles.active]: true })}>
+              <div>
+                <img src="/images/icon/menu/thu_tien.png"></img>
+              </div>
+              <a className={styles.text}>Quản lý phòng</a>
+            </div>
+            <div className={styles.dichvuBox}>
+              <div>
+                <img src="/images/icon/menu/thu_tien.png"></img>
+              </div>
+              <a className={styles.text}>Quản lý hóa đơn</a>
+            </div>
+            <div className={styles.dichvuBox}>
+              <div>
+                <img src="\images\icon\menu\ghi_chu.png"></img>
+              </div>
+              <a className={styles.text}>Quản lý dịch vụ</a>
+            </div>
+            <div className={styles.dichvuBox}>
+              <div>
+                <img src="\images\icon\menu\ghi_chu.png"></img>
+              </div>
+              <a className={styles.text}>Quản lý tài sản</a>
+            </div>
+            <div className={styles.dichvuBox}>
+              <div>
+                <img src="\images\icon\menu\report_customer_use.png"></img>
+              </div>
+              <a className={styles.text}>Quản lý hợp đồng</a>
+            </div>
+            <div className={styles.dichvuBox}>
+              <div>
+                <img src="\images\icon\menu\danh_sach_lien_he.png"></img>
+              </div>
+              <a className={styles.text}>Quản lý khách thuê</a>
+            </div>
+            <div className={styles.dichvuBox}>
+              <div>
+                <img src="\images\icon\menu\thu_tien.png"></img>
+              </div>
+              <a className={styles.text}>Thu/Chi - tổng kết</a>
+            </div>
+            <div className={styles.dichvuBox}>
+              <div>
+                <img src="\images\icon\menu\setting.png"></img>
+              </div>
+              <a className={styles.text}>Cài đặt</a>
+            </div>
+            <div className={styles.dichvuBox}>
+              <div>
+                <img src="\images\icon\menu\icon-zalo.png"></img>
+              </div>
+              <a className={styles.text}>Nhắn tin</a>
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className={styles.danhSach}
