@@ -1,0 +1,89 @@
+.ListApartment {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.containerList {
+  width: 500px;
+  margin: 50px auto;
+  background-color: white;
+  height: fit-content;
+  /* animation: DisplayOn 0.5s ease-in-out forwards; */
+  /* animation: DisplayOff 0.3s ease-in-out forwards; */
+}
+.header,
+.main {
+  padding: 16px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header .content {
+  flex-basis: 80%;
+}
+.icon {
+  font-size: 25px;
+}
+.header .icon,
+.header .icon {
+  flex-basis: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon.close {
+  border: 3.5px solid rgba(255, 165, 0, 0.3);
+  padding: 6px 8px;
+  border-radius: 100%;
+}
+/* end header */
+.nameAdress {
+  flex-basis: 80%;
+}
+.nameAdress h3 {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.nameAdress i {
+  opacity: 0.8;
+  margin-bottom: 16px;
+}
+.main {
+  border-top: solid 1px #ccc;
+}
+.apartment {
+  padding: 10px;
+  background-color: #30ae71;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.func {
+  display: flex;
+  gap: 10px;
+}
+.apartment .nameAdress {
+  flex-basis: 70%;
+}
+.apartment .func {
+  flex-basis: 30%;
+}
+.func .icon {
+  flex-basis: calc(100% / 3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background-color: rgb(108, 117, 125);
+  border-radius: 25px;
+}
+.func .active {
+  background-color: white;
+  color: black;
+}
