@@ -1,7 +1,7 @@
 import styles from '../RoomManager/style.module.css';
 import clsx from 'clsx';
 import { CgArrowLongRight, CgFileDocument } from 'react-icons/cg';
-import { FiPlus, FiChevronDown } from 'react-icons/fi';
+import { FiPlus, FiChevronDown, FiFilter } from 'react-icons/fi';
 
 function RoomManager() {
   return (
@@ -65,19 +65,98 @@ function RoomManager() {
           <div className={styles.iconBox}>
             <FiPlus />
           </div>
-          <div className={styles.func}>
-            <div className={styles.doc}>
-              <CgFileDocument />
-            </div>
-            <p>Ẩn/Hiện cột</p>
-            <FiChevronDown />
-            <div className={styles.notification}>12</div>
+          <div className={styles.funcBox}>
+            <button className={styles.func}>
+              <div className={styles.doc}>
+                <CgFileDocument />
+              </div>
+              <p>Ẩn/Hiện cột</p>
+              <FiChevronDown />
+              <div className={styles.notification}>12</div>
+            </button>
+            <ul className={styles.dropDown}>
+              <li>
+                <input type="checkbox" id="group" defaultChecked />
+                <label htmlFor="group">Nhóm</label>
+              </li>
+              <li>
+                <input type="checkbox" id="deposit" defaultChecked />
+                <label htmlFor="deposit">Mức tiền cọc</label>
+              </li>
+              <li>
+                <input type="checkbox" id="debt" defaultChecked />
+                <label htmlFor="debt">Tiền nợ</label>
+              </li>
+              <li>
+                <input type="checkbox" id="customer" defaultChecked />
+                <label htmlFor="customer">Khách thuê</label>
+              </li>
+              <li>
+                <input type="checkbox" id="startDate" defaultChecked />
+                <label htmlFor="startDate">Ngày lập hóa đơn</label>
+              </li>
+              <li>
+                <input type="checkbox" id="billCycle" defaultChecked />
+                <label htmlFor="billCycle">Chu kỳ thu tiền</label>
+              </li>
+              <li>
+                <input type="checkbox" id="startIn" defaultChecked />
+                <label htmlFor="startIn">Ngày vào ở</label>
+              </li>
+              <li>
+                <input type="checkbox" id="endDate" defaultChecked />
+                <label htmlFor="endDate">Thời hạn hợp đồng</label>
+              </li>
+            </ul>
+            <button className={styles.func}>
+              <div className={styles.doc}>
+                <CgFileDocument />
+              </div>
+              <p>Xuất Excel</p>
+            </button>
           </div>
-          <div className={styles.func}>
-            <div className={styles.doc}>
-              <CgFileDocument />
+        </div>
+        <div className={styles.filterContainer}>
+          <div className={styles.iconBox}>
+            <FiFilter />
+            <span>10</span>
+          </div>
+          <div className={styles.chooseFilter}>
+            <div className={styles.selected}>
+              <input type="checkbox" id="is_active" />
+              <label htmlFor="is_active">Đang ở</label>
+              <span className={styles.green}>1</span>
             </div>
-            <p>Xuất Excel</p>
+            <div className={styles.selected}>
+              <input type="checkbox" id="is_empty" />
+              <label htmlFor="is_empty">Đang trống</label>
+              <span className={styles.red}>9</span>
+            </div>
+            <div className={styles.selected}>
+              <input type="checkbox" id="is_terminate_contract" />
+              <label htmlFor="is_terminate_contract">Đang báo kết thúc</label>
+              <span className={styles.yellow}>0</span>
+            </div>
+            <div className={styles.selected}>
+              <input type="checkbox" id="is_will_terminate_contract" />
+              <label htmlFor="is_will_terminate_contract">Sắp hết hạn hợp đồng</label>
+              <span className={styles.yellow}>0</span>
+            </div>
+            <div className={styles.selected}>
+              <input type="checkbox" id="is_expire" />
+              <label htmlFor="is_expire">Đã quá hạn hợp đồng</label>
+              <span className={styles.gray}>0</span>
+            </div>
+            <div className={styles.selected}>
+              <input type="checkbox" id="is_deposit_temp" />
+              <label htmlFor="is_deposit_temp">Đang cọc giữ chỗ</label>
+              <span className={styles.yellow}>0</span>
+            </div>
+            <div className={styles.selected}>
+              <input type="checkbox" id="active_status" />
+              <label htmlFor="active_status">Đang nợ tiền</label>
+              <span className={styles.red}>0</span>
+            </div>
           </div>
         </div>
       </div>

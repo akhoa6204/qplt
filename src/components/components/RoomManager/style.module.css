@@ -54,6 +54,9 @@
 } /* end header */
 .main {
   margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
 }
 .desc {
   display: flex;
@@ -78,28 +81,39 @@
   border-radius: 5px;
 }
 .desc .iconBox {
-  padding: 12px;
-  font-size: 30px;
-  color: white;
+  margin-right: 40px;
+  display: flex;
+  align-items: center;
   background-color: rgb(21, 160, 92);
-  display: flex;
-  align-items: center;
+  padding: 12px;
+  font-size: 25px;
   border-radius: 50%;
+  color: white;
 }
-
-.desc .func {
+.desc .funcBox {
+  display: flex;
+  gap: 20px;
+  color: white;
   position: relative;
+}
+.desc .funcBox {
+  display: flex;
+}
+.desc .funcBox .func {
   display: flex;
   align-items: center;
-  color: white;
+  gap: 5px;
+  background-image: linear-gradient(to right, rgb(125, 194, 66), rgb(59, 157, 70));
   padding: 7px 20px;
   border-radius: 5px;
-  background-image: linear-gradient(to right, rgb(125, 194, 66), rgb(59, 157, 70));
+  border: none;
+  color: white;
+  position: relative;
 }
-.desc .func .doc {
+.desc .funcBox .func .doc {
   font-size: 20px;
 }
-.desc .func .notification {
+.desc .funcBox .func .notification {
   position: absolute;
   top: -12px;
   right: -10px;
@@ -107,4 +121,94 @@
   background-color: red;
   color: white;
   border-radius: 5px;
+}
+.desc .funcBox .dropDown {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  list-style-type: none;
+  color: black;
+  background-color: white;
+  top: calc(100%);
+  padding: 8px 0;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+.desc .funcBox .dropDown li {
+  padding: 4px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.desc .funcBox .func:hover + .dropDown,
+.desc .funcBox .dropDown:hover,
+.desc .funcBox .func:focus + .dropDown {
+  display: block;
+}
+.desc .funcBox .func:focus {
+  box-shadow: 0 0 0 5px rgba(49, 132, 253, 0.5);
+}
+.desc .funcBox .dropDown li:hover {
+  background-color: #e9ecef;
+}
+/* end desc */
+.filterContainer {
+  display: flex;
+  margin-top: 14px;
+  background-color: #f9fafb;
+  padding: 10px;
+  border: 1px solid #ebeced;
+  border-radius: 5px;
+}
+.iconBox {
+  padding: 0 10px;
+  margin-right: 20px;
+  border-right: 1px solid #ebeced;
+  font-size: 25px;
+  position: relative;
+}
+.iconBox span {
+  position: absolute;
+  color: white;
+  padding: 3px;
+  background-color: #8bc34a;
+  border-radius: 5px;
+  font-size: 12px;
+  top: -15px;
+  right: -10px;
+}
+.chooseFilter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chooseFilter .selected {
+  padding: 3px 6px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  border-radius: 5px;
+  border: 0.5px solid #ccc;
+  position: relative;
+}
+.chooseFilter .selected span {
+  position: absolute;
+  right: -7px;
+  top: -15px;
+  padding: 3px 6px;
+  font-size: 12px;
+  border-radius: 5px;
+  color: white;
+}
+span.green {
+  background-color: #3c9d46;
+}
+span.red {
+  background-color: #dc3545;
+}
+span.yellow {
+  background-color: #fe8f00;
+}
+span.gray {
+  background-color: #5f6368;
 }
