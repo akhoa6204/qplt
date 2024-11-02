@@ -11,8 +11,7 @@
   max-width: 800px;
   width: 800px;
   margin: 50px auto 100px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-radius: 5px;
   background-color: white;
 }
 .containerList > * {
@@ -296,9 +295,14 @@
 }
 /* end setting */
 .footer {
+  background-color: white;
+  position: sticky;
+  bottom: 0;
   padding: 12px;
   display: flex;
   justify-content: flex-end;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 .footer > * {
   margin: 4px;
