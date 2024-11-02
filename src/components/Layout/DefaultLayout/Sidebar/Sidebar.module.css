@@ -3,10 +3,9 @@
   min-height: 125px;
   gap: 10px;
   margin: 0;
-  justify-content: space-between;
   align-items: center;
 }
-.home {
+.container .home {
   flex: 0 0 17%;
   width: 100%;
   display: flex;
@@ -18,17 +17,17 @@
   position: relative;
   background-color: white;
 }
-.home .iconHome {
+.container .home .containerHome {
+  position: relative;
+}
+.container .home .containerHome .iconHome {
   font-size: 35px;
   padding: 6px;
   background-color: #0e844a;
-  border-radius: 15px;
+  border-radius: 50%;
   color: white;
 }
-.containerHome {
-  position: relative;
-}
-.notice {
+.container .home .containerHome .notice {
   position: absolute;
   top: -10px;
   right: -10px;
@@ -37,50 +36,53 @@
   padding: 1.85px 7.15px;
   border-radius: 10px;
 }
-.home .content {
+.container .home .content {
   padding: 20px 0 20px 10px;
 }
-.iconPlus {
+.container .home .content .nameApartment {
+  color: #0e844a;
+}
+.container .home .iconPlus {
   color: white;
   background-color: #0e844a;
   font-size: 35px;
   padding: 6px;
-  border-radius: 15px;
+  border-radius: 50%;
   position: absolute;
   right: 0;
   transform: translateX(50%);
 }
-.container .dichvuContainer {
-  overflow-x: auto;
-}
-.container .dichvu {
+/* end home */
+.container .customerServiceContainer {
+  overflow-x: scroll;
+  flex-grow: 1;
   display: flex;
-  gap: 10px;
   flex-wrap: nowrap;
-  margin: 5px;
+  gap: 10px;
 }
-.container .dichvu .dichvuBox {
-  width: 140px;
+.container .customerServiceContainer .box {
+  min-width: 140px;
   background-color: white;
   text-align: center;
   padding: 10px 5px;
   border-radius: 10px;
+  margin: 5px;
 }
-.container .dichvu .dichvuBox:hover,
-.container .dichvu .dichvuBox.active {
+.container .customerServiceContainer .box .text {
+  font-weight: bold;
+  font-size: 14px;
+}
+.container .customerServiceContainer .box .imgBox img {
+  width: 55px;
+  height: 55px;
+}
+.container .customerServiceContainer .box:hover,
+.container .customerServiceContainer .box.active {
   text-decoration: underline;
   border-radius: 10px;
   border: 0.5px solid #28b366;
   box-shadow: 0 0 0 0.27rem rgb(37 160 92 / 22%);
-}
-.container .dichvu .dichvuBox img {
-  width: 55px;
-  height: 55px;
-}
-.container .dichvu .dichvuBox a {
   color: rgb(29, 105, 34);
-  font-weight: bold;
-  font-size: 13px;
 }
 
 @keyframes DisplayOn {

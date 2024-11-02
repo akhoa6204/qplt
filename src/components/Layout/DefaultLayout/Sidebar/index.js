@@ -95,7 +95,7 @@ function Sidebar() {
           </div>
           <div className={styles.content}>
             <p>Đang quản lý</p>
-            <p style={{ color: '#0e844a' }}>Nhà trọ Anh Khoa</p>
+            <p className={styles.nameApartment}>Nhà trọ Anh Khoa</p>
           </div>
           <CgAdd
             className={styles.iconPlus}
@@ -105,62 +105,60 @@ function Sidebar() {
             }}
           />
         </div>
-        <div className={styles.dichvuContainer}>
-          <div className={styles.dichvu}>
-            <div className={clsx(styles.dichvuBox, { [styles.active]: true })}>
-              <div>
-                <img src="/images/icon/menu/thu_tien.png"></img>
-              </div>
-              <a className={styles.text}>Quản lý phòng</a>
+        <div className={styles.customerServiceContainer}>
+          <div className={clsx(styles.box, { [styles.active]: true })}>
+            <div className={styles.imgBox}>
+              <img src="/images/icon/menu/thu_tien.png"></img>
             </div>
-            <div className={styles.dichvuBox}>
-              <div>
-                <img src="/images/icon/menu/thu_tien.png"></img>
-              </div>
-              <a className={styles.text}>Quản lý hóa đơn</a>
+            <a className={styles.text}>Quản lý phòng</a>
+          </div>
+          <div className={clsx(styles.box, { [styles.active]: false })}>
+            <div className={styles.imgBox}>
+              <img src="/images/icon/menu/thu_tien.png"></img>
             </div>
-            <div className={styles.dichvuBox}>
-              <div>
-                <img src="\images\icon\menu\ghi_chu.png"></img>
-              </div>
-              <a className={styles.text}>Quản lý dịch vụ</a>
+            <a className={styles.text}>Quản lý hóa đơn</a>
+          </div>
+          <div className={clsx(styles.box, { [styles.active]: false })}>
+            <div className={styles.imgBox}>
+              <img src="\images\icon\menu\ghi_chu.png"></img>
             </div>
-            <div className={styles.dichvuBox}>
-              <div>
-                <img src="\images\icon\menu\ghi_chu.png"></img>
-              </div>
-              <a className={styles.text}>Quản lý tài sản</a>
+            <a className={styles.text}>Quản lý dịch vụ</a>
+          </div>
+          <div className={clsx(styles.box, { [styles.active]: false })}>
+            <div className={styles.imgBox}>
+              <img src="\images\icon\menu\ghi_chu.png"></img>
             </div>
-            <div className={styles.dichvuBox}>
-              <div>
-                <img src="\images\icon\menu\report_customer_use.png"></img>
-              </div>
-              <a className={styles.text}>Quản lý hợp đồng</a>
+            <a className={styles.text}>Quản lý tài sản</a>
+          </div>
+          <div className={clsx(styles.box, { [styles.active]: false })}>
+            <div className={styles.imgBox}>
+              <img src="\images\icon\menu\report_customer_use.png"></img>
             </div>
-            <div className={styles.dichvuBox}>
-              <div>
-                <img src="\images\icon\menu\danh_sach_lien_he.png"></img>
-              </div>
-              <a className={styles.text}>Quản lý khách thuê</a>
+            <a className={styles.text}>Quản lý hợp đồng</a>
+          </div>
+          <div className={clsx(styles.box, { [styles.active]: false })}>
+            <div className={styles.imgBox}>
+              <img src="\images\icon\menu\danh_sach_lien_he.png"></img>
             </div>
-            <div className={styles.dichvuBox}>
-              <div>
-                <img src="\images\icon\menu\thu_tien.png"></img>
-              </div>
-              <a className={styles.text}>Thu/Chi - tổng kết</a>
+            <a className={styles.text}>Quản lý khách thuê</a>
+          </div>
+          <div className={clsx(styles.box, { [styles.active]: false })}>
+            <div className={styles.imgBox}>
+              <img src="\images\icon\menu\thu_tien.png"></img>
             </div>
-            <div className={styles.dichvuBox}>
-              <div>
-                <img src="\images\icon\menu\setting.png"></img>
-              </div>
-              <a className={styles.text}>Cài đặt</a>
+            <a className={styles.text}>Thu/Chi - tổng kết</a>
+          </div>
+          <div className={clsx(styles.box, { [styles.active]: false })}>
+            <div className={styles.imgBox}>
+              <img src="\images\icon\menu\setting.png"></img>
             </div>
-            <div className={styles.dichvuBox}>
-              <div>
-                <img src="\images\icon\menu\icon-zalo.png"></img>
-              </div>
-              <a className={styles.text}>Nhắn tin</a>
+            <a className={styles.text}>Cài đặt</a>
+          </div>
+          <div className={clsx(styles.box, { [styles.active]: false })}>
+            <div className={styles.imgBox}>
+              <img src="\images\icon\menu\icon-zalo.png"></img>
             </div>
+            <a className={styles.text}>Nhắn tin</a>
           </div>
         </div>
       </div>
