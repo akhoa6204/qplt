@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import styles from './Sidebar.module.css';
-import { CgHomeAlt, CgAdd } from 'react-icons/cg';
+import { CgHomeAlt } from 'react-icons/cg';
+import { FiPlus } from 'react-icons/fi';
 import { useState } from 'react';
 import ListApartment from '../ListApartment';
 import FormAddApartment from '../FormAddApartment';
@@ -10,78 +11,7 @@ function Sidebar() {
   const handleOpenCloseListApartment = () => {
     setIsNone((pre) => (pre === 'none' ? 'block' : 'none'));
   };
-  //   setIsFocus((pre) => !pre);
-  // };
-  // const handleFocus2 = () => {
-  //   setIsFocus2((pre) => !pre);
-  // };
-  // const handleFocus3 = () => {
-  //   setIsFocus3((pre) => !pre);
-  // };
-  // const handleFocus4 = () => {
-  //   setIsFocus4((pre) => !pre);
-  // };
-  // const handleFocus5 = () => {
-  //   setIsFocus5((pre) => !pre);
-  // };
-  // const notes = {
-  //   auto: (
-  //     <div className={clsx(styles.noteAuto, styles.banner)}>
-  //       <div className={styles.iconWarn}>
-  //         <AiFillWarning />
-  //       </div>
-  //       <p>
-  //         <strong>Ghi chú:</strong> Vui lòng chọn số tầng và nhập số phòng để hệ thống tự động tạo
-  //         dữ liệu phòng cho bạn
-  //       </p>
-  //     </div>
-  //   ),
-  //   excel: (
-  //     <div className={styles.noteExcel}>
-  //       <div className={styles.stepProgressContainer}>
-  //         <ul className={styles.stepProgress}>
-  //           <li className={styles.stepProgressItem}>Bước 1: Tải file mẫu</li>
-  //           <li className={styles.stepProgressItem}>Bước 2: Nhập dữ liệu của bạn vào file mẫu</li>
-  //           <li className={styles.stepProgressItem}>Bước 3: Upload file mẫu lên để nhập liệu</li>
-  //         </ul>
-  //       </div>
-  //       <div className={styles.uploadExcel}>
-  //         <div className={styles.iconDownUpload}>
-  //           <CgSoftwareUpload />
-  //         </div>
-  //         <input type="file" id="uploadExcel" />
-  //         <label htmlFor="uploadExcel">File Excel cần nhập dữ liệu</label>
-  //       </div>
-  //       <div className={styles.downloadExcel}>
-  //         <div className={styles.iconDownUpload}>
-  //           <CgSoftwareDownload />
-  //         </div>
-  //         <input type="file" id="downloadExcel" />
-  //         <label htmlFor="downloadExcel">Tải file Excel mẫu</label>
-  //       </div>
-  //     </div>
-  //   ),
-  //   manual: (
-  //     <div className={clsx(styles.noteManual, styles.banner)}>
-  //       <div className={styles.iconWarn}>
-  //         <AiFillWarning />
-  //       </div>
-  //       <p>
-  //         <strong>Ghi chú:</strong> Bạn phải thực hiện tạo dữ liệu cho từng phòng bằng thủ công.
-  //       </p>
-  //     </div>
-  //   ),
-  // };
-  // const handleChange = (e) => {
-  //   const value = e.target.value;
-  //   if (value === '1') {
-  //     setIsSelect('auto');
-  //   } else if (value === '2') {
-  //     setIsSelect('excel');
-  //   } else if (value === '3') {
-  //     setIsSelect('manual');
-  //   }
-  // };
+
   const handleCloseOpenFormAddApartment = (e) => {
     setIsNone2((pre) => (pre === 'none' ? 'block' : 'none'));
   };
@@ -97,7 +27,7 @@ function Sidebar() {
             <p>Đang quản lý</p>
             <p className={styles.nameApartment}>Nhà trọ Anh Khoa</p>
           </div>
-          <CgAdd
+          <FiPlus
             className={styles.iconPlus}
             onClick={(e) => {
               e.stopPropagation();

@@ -1,0 +1,110 @@
+.roomManagerContainer {
+  margin: 0 10px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+}
+.header {
+  display: flex;
+  gap: 16px;
+}
+.header .box {
+  padding: 8px;
+  border: 0.5px solid #eeeeee;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px 0 rgb(0 0 0 / 6%);
+  flex-basis: 25%;
+}
+.header .box {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.header .box .text {
+  color: rgb(255, 0, 0);
+}
+.header .box .text h3 {
+  font-weight: bold;
+}
+.header .box .icon img {
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+  background-color: rgba(255, 205, 205, 0.2);
+  border-radius: 50%;
+  padding: 14px;
+}
+.header .box .arrowBox {
+  position: absolute;
+  right: 0;
+  transform: translateY(50%);
+  padding: 8px;
+  font-size: 25px;
+  border: 1px solid #eee;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+}
+.header .box.correct .text {
+  color: rgb(60, 160, 92);
+}
+.header .box.correct .icon img {
+  background-color: rgb(229, 255, 237);
+} /* end header */
+.main {
+  margin-top: 30px;
+}
+.desc {
+  display: flex;
+  justify-content: space-between;
+}
+.desc > * {
+  margin-right: 20px;
+}
+.desc .content {
+  padding-left: 15px;
+  position: relative;
+  flex-grow: 1;
+}
+.desc .content::before {
+  position: absolute;
+  content: '';
+  width: 5px;
+  top: 8px;
+  bottom: 8px;
+  left: 0;
+  background-color: rgb(60, 158, 71);
+  border-radius: 5px;
+}
+.desc .iconBox {
+  padding: 12px;
+  font-size: 30px;
+  color: white;
+  background-color: rgb(21, 160, 92);
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.desc .func {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 7px 20px;
+  border-radius: 5px;
+  background-image: linear-gradient(to right, rgb(125, 194, 66), rgb(59, 157, 70));
+}
+.desc .func .doc {
+  font-size: 20px;
+}
+.desc .func .notification {
+  position: absolute;
+  top: -12px;
+  right: -10px;
+  padding: 2px;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+}

@@ -94,13 +94,6 @@
   border-radius: 5px;
   border: 1px solid #ced4da;
 }
-.main .box .subBox input::placeholder,
-.main .box .subBox select::placeholder,
-.main .box .subBox50 input::placeholder,
-.main .box .subBox50 select::placeholder {
-  content: ' ';
-  opacity: 0;
-}
 .main .box .subBox label,
 .main .box .subBox50 label {
   position: absolute;
