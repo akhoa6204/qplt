@@ -1,6 +1,12 @@
 import styles from '../RoomManager/style.module.css';
 import clsx from 'clsx';
-import { CgArrowLongRight, CgFileDocument } from 'react-icons/cg';
+import {
+  CgArrowLongRight,
+  CgFileDocument,
+  CgMenu,
+  CgUser,
+  CgMoreVerticalAlt,
+} from 'react-icons/cg';
 import { FiPlus, FiChevronDown, FiFilter } from 'react-icons/fi';
 
 function RoomManager() {
@@ -125,39 +131,254 @@ function RoomManager() {
             <div className={styles.selected}>
               <input type="checkbox" id="is_active" />
               <label htmlFor="is_active">Đang ở</label>
-              <span className={styles.green}>1</span>
+              <span className={styles.bgGreen}>1</span>
             </div>
             <div className={styles.selected}>
               <input type="checkbox" id="is_empty" />
               <label htmlFor="is_empty">Đang trống</label>
-              <span className={styles.red}>9</span>
+              <span className={styles.bgRed}>9</span>
             </div>
             <div className={styles.selected}>
               <input type="checkbox" id="is_terminate_contract" />
               <label htmlFor="is_terminate_contract">Đang báo kết thúc</label>
-              <span className={styles.yellow}>0</span>
+              <span className={styles.bgYellow}>0</span>
             </div>
             <div className={styles.selected}>
               <input type="checkbox" id="is_will_terminate_contract" />
               <label htmlFor="is_will_terminate_contract">Sắp hết hạn hợp đồng</label>
-              <span className={styles.yellow}>0</span>
+              <span className={styles.bgYellow}>0</span>
             </div>
             <div className={styles.selected}>
               <input type="checkbox" id="is_expire" />
               <label htmlFor="is_expire">Đã quá hạn hợp đồng</label>
-              <span className={styles.gray}>0</span>
+              <span className={styles.bgGray}>0</span>
             </div>
             <div className={styles.selected}>
               <input type="checkbox" id="is_deposit_temp" />
               <label htmlFor="is_deposit_temp">Đang cọc giữ chỗ</label>
-              <span className={styles.yellow}>0</span>
+              <span className={styles.bgYellow}>0</span>
             </div>
             <div className={styles.selected}>
               <input type="checkbox" id="active_status" />
               <label htmlFor="active_status">Đang nợ tiền</label>
-              <span className={styles.red}>0</span>
+              <span className={styles.bgRed}>0</span>
             </div>
           </div>
+        </div>
+        <div classNam={styles.tableContainer}>
+          <table className={styles.table}>
+            <tr>
+              <th></th>
+              <th></th>
+              <th>Tên phòng</th>
+              <th>Nhóm</th>
+              <th>Giá thuê</th>
+              <th>Mức giá tiền cọc</th>
+              <th>Tiền nợ</th>
+              <th>Khách thuê</th>
+              <th>Ngày lập hóa đơn</th>
+              <th>Chu kỳ thu tiền</th>
+              <th>Ngày vào ở</th>
+              <th>Thời hạn hợp đồng</th>
+              <th>Tình trạng</th>
+              <th>Tài chính</th>
+              <th></th>
+            </tr>
+            <tr>
+              <td className={styles.icon}>
+                <CgMenu className={styles.menuIcon} />
+              </td>
+              <td className={styles.wrong}>
+                <div className={styles.imgBox}>
+                  <img src="\images\icon\roomManager\room.png" />
+                </div>
+              </td>
+              <td>
+                <p>
+                  <strong>Phòng 1</strong>
+                </p>
+                <p>Phan Nguyễn Anh Khoa</p>
+                <small>Chưa sử dụng app</small>
+              </td>
+              <td>
+                <p>Tầng trệt</p>
+              </td>
+              <td>
+                <strong>
+                  1.500.000 <span>đ</span>
+                </strong>
+                <br />
+                <small className={styles.colorRed}>Chưa thu lần nào</small>
+              </td>
+              <td>
+                <strong>
+                  1.500.000 <span>đ</span>
+                </strong>
+                <br />
+                <small className={styles.colorRed}>Chưa thu tiền cọc</small>
+              </td>
+              <td className={styles.wrong}>
+                <strong>
+                  0 <span>đ</span>
+                </strong>
+              </td>
+              <td className={clsx(styles.user, styles.wrong)}>
+                <div className={styles.icon}>
+                  <CgUser />
+                </div>
+                <p>1/1 người</p>
+              </td>
+              <td>
+                <p>Ngày 1</p>
+              </td>
+              <td>
+                <p>1 tháng </p>
+              </td>
+              <td>
+                <p>6/10/2024 </p>
+              </td>
+              <td className={styles.wrong}>
+                <p>Không xác định</p>
+              </td>
+              <td className={styles.wrong}>
+                <p className={clsx(styles.bgGreenLight, styles.isActive)}>Đang ở</p>
+              </td>
+              <td className={styles.wrong}>
+                <p className={clsx(styles.bgGreenLight, styles.finance)}>Chờ kỳ thu tới</p>
+              </td>
+              <td className={styles.icon}>
+                <CgMoreVerticalAlt />
+              </td>
+            </tr>
+            <tr className={styles.isEmpty}>
+              <td className={styles.icon}>
+                <CgMenu className={styles.menuIcon} />
+              </td>
+              <td className={styles.wrong}>
+                <div className={styles.imgBox}>
+                  <img src="\images\icon\roomManager\room.png" />
+                </div>
+              </td>
+              <td>
+                <p>
+                  <strong>Phòng 2</strong>
+                </p>
+              </td>
+              <td>
+                <p>Tầng trệt</p>
+              </td>
+              <td>
+                <strong>
+                  1.500.000 <span>đ</span>
+                </strong>
+                <br />
+                <small className={styles.colorRed}>Chưa thu lần nào</small>
+              </td>
+              <td>
+                <strong>
+                  1.500.000 <span>đ</span>
+                </strong>
+                <br />
+                <small className={styles.colorRed}>Chưa thu tiền cọc</small>
+              </td>
+              <td className={styles.wrong}>
+                <strong>
+                  0 <span>đ</span>
+                </strong>
+              </td>
+              <td className={clsx(styles.user, styles.wrong)}>
+                <div className={styles.icon}>
+                  <CgUser />
+                </div>
+                <p>0/1 người</p>
+              </td>
+              <td>
+                <p>Ngày 1</p>
+              </td>
+              <td>
+                <p>1 tháng </p>
+              </td>
+              <td className={styles.wrong}>
+                <p>Không xác định</p>
+              </td>
+              <td className={styles.wrong}>
+                <p>Không xác định</p>
+              </td>
+              <td className={styles.wrong}>
+                <p className={clsx(styles.bgRedLight, styles.isActive)}>Đang trống</p>
+              </td>
+              <td className={styles.wrong}>
+                <p className={clsx(styles.bgGreenLight, styles.finance)}>Chờ kỳ thu tới</p>
+              </td>
+              <td className={styles.icon}>
+                <CgMoreVerticalAlt />
+              </td>
+            </tr>
+            <tr className={styles.isEmpty}>
+              <td className={styles.icon}>
+                <CgMenu className={styles.menuIcon} />
+              </td>
+              <td className={styles.wrong}>
+                <div className={styles.imgBox}>
+                  <img src="\images\icon\roomManager\room.png" />
+                </div>
+              </td>
+              <td>
+                <p>
+                  <strong>Phòng 3</strong>
+                </p>
+              </td>
+              <td>
+                <p>Tầng trệt</p>
+              </td>
+              <td>
+                <strong>
+                  1.500.000 <span>đ</span>
+                </strong>
+                <br />
+                <small className={styles.colorRed}>Chưa thu lần nào</small>
+              </td>
+              <td>
+                <strong>
+                  1.500.000 <span>đ</span>
+                </strong>
+                <br />
+                <small className={styles.colorRed}>Chưa thu tiền cọc</small>
+              </td>
+              <td className={styles.wrong}>
+                <strong>
+                  0 <span>đ</span>
+                </strong>
+              </td>
+              <td className={clsx(styles.user, styles.wrong)}>
+                <div className={styles.icon}>
+                  <CgUser />
+                </div>
+                <p>0/1 người</p>
+              </td>
+              <td>
+                <p>Ngày 1</p>
+              </td>
+              <td>
+                <p>1 tháng </p>
+              </td>
+              <td className={styles.wrong}>
+                <p>Không xác định</p>
+              </td>
+              <td className={styles.wrong}>
+                <p>Không xác định</p>
+              </td>
+              <td className={styles.wrong}>
+                <p className={clsx(styles.bgRedLight, styles.isActive)}>Đang trống</p>
+              </td>
+              <td className={styles.wrong}>
+                <p className={clsx(styles.bgGreenLight, styles.finance)}>Chờ kỳ thu tới</p>
+              </td>
+              <td className={styles.icon}>
+                <CgMoreVerticalAlt />
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
