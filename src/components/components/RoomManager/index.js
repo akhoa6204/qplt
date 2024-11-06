@@ -1,5 +1,6 @@
 import styles from '../RoomManager/style.module.css';
 import clsx from 'clsx';
+import { useState, useEffect } from 'react';
 import {
   CgArrowLongRight,
   CgFileDocument,
@@ -10,6 +11,105 @@ import {
 import { FiPlus, FiChevronDown, FiFilter } from 'react-icons/fi';
 
 function RoomManager() {
+  const [isActiveIndex, setActiveIndex] = useState(false);
+  const handleFunc = (index) => {
+    if ((isActiveIndex === index) | (index === false)) {
+      setActiveIndex(false);
+    } else {
+      setActiveIndex(index);
+    }
+  };
+  const handleClickOutside = (e) => {
+    if (!e.target.closest(`${styles.icon} ${styles.last}`) && !e.target.closest(`${styles.func}`)) {
+      setActiveIndex(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+  const roomList = [
+    {
+      number: 'Phòng 1',
+      cus: 'Phan Nguyễn Anh Khoa',
+      usedApp: false,
+      floor: 'Tầng trệt',
+      price: '1.500.000',
+      payRent: false,
+      deposit: '1.500.000',
+      payRentDeposit: false,
+      debt: 0,
+      numPeople: 1,
+      totalPeople: 1,
+      startDate: 1,
+      cycleCollect: 1,
+      moveInDate: '6/10/2024',
+      endDate: null,
+      status: true,
+      finance: 'Chờ kỳ thu tới',
+    },
+    {
+      number: 'Phòng 2',
+      cus: false,
+      usedApp: false,
+      floor: 'Tầng trệt',
+      price: '1.500.000',
+      payRent: false,
+      deposit: '1.500.000',
+      payRentDeposit: false,
+      debt: 0,
+      numPeople: 0,
+      totalPeople: 1,
+      startDate: 1,
+      cycleCollect: 1,
+      moveInDate: null,
+      endDate: null,
+      status: false,
+      finance: 'Chờ kỳ thu tới',
+    },
+    {
+      number: 'Phòng 3',
+      cus: false,
+      usedApp: false,
+      floor: 'Tầng trệt',
+      price: '1.500.000',
+      payRent: false,
+      deposit: '1.500.000',
+      payRentDeposit: false,
+      debt: 0,
+      numPeople: 0,
+      totalPeople: 1,
+      startDate: 1,
+      cycleCollect: 1,
+      moveInDate: null,
+      endDate: null,
+      status: false,
+      finance: 'Chờ kỳ thu tới',
+    },
+    {
+      number: 'Phòng 4',
+      cus: false,
+      usedApp: false,
+      floor: 'Tầng trệt',
+      price: '1.500.000',
+      payRent: false,
+      deposit: '1.500.000',
+      payRentDeposit: false,
+      debt: 0,
+      numPeople: 0,
+      totalPeople: 1,
+      startDate: 1,
+      cycleCollect: 1,
+      moveInDate: null,
+      endDate: null,
+      status: false,
+      finance: 'Chờ kỳ thu tới',
+    },
+  ];
   return (
     <div className={styles.roomManagerContainer}>
       <div className={styles.header}>
@@ -165,7 +265,7 @@ function RoomManager() {
             </div>
           </div>
         </div>
-        <div classNam={styles.tableContainer}>
+        <div className={styles.tableContainer}>
           <table className={styles.table}>
             <tr>
               <th></th>
@@ -184,200 +284,177 @@ function RoomManager() {
               <th>Tài chính</th>
               <th></th>
             </tr>
-            <tr>
-              <td className={styles.icon}>
-                <CgMenu className={styles.menuIcon} />
-              </td>
-              <td className={styles.wrong}>
-                <div className={styles.imgBox}>
-                  <img src="\images\icon\roomManager\room.png" />
-                </div>
-              </td>
-              <td>
-                <p>
-                  <strong>Phòng 1</strong>
-                </p>
-                <p>Phan Nguyễn Anh Khoa</p>
-                <small>Chưa sử dụng app</small>
-              </td>
-              <td>
-                <p>Tầng trệt</p>
-              </td>
-              <td>
-                <strong>
-                  1.500.000 <span>đ</span>
-                </strong>
-                <br />
-                <small className={styles.colorRed}>Chưa thu lần nào</small>
-              </td>
-              <td>
-                <strong>
-                  1.500.000 <span>đ</span>
-                </strong>
-                <br />
-                <small className={styles.colorRed}>Chưa thu tiền cọc</small>
-              </td>
-              <td className={styles.wrong}>
-                <strong>
-                  0 <span>đ</span>
-                </strong>
-              </td>
-              <td className={clsx(styles.user, styles.wrong)}>
-                <div className={styles.icon}>
-                  <CgUser />
-                </div>
-                <p>1/1 người</p>
-              </td>
-              <td>
-                <p>Ngày 1</p>
-              </td>
-              <td>
-                <p>1 tháng </p>
-              </td>
-              <td>
-                <p>6/10/2024 </p>
-              </td>
-              <td className={styles.wrong}>
-                <p>Không xác định</p>
-              </td>
-              <td className={styles.wrong}>
-                <p className={clsx(styles.bgGreenLight, styles.isActive)}>Đang ở</p>
-              </td>
-              <td className={styles.wrong}>
-                <p className={clsx(styles.bgGreenLight, styles.finance)}>Chờ kỳ thu tới</p>
-              </td>
-              <td className={styles.icon}>
-                <CgMoreVerticalAlt />
-              </td>
-            </tr>
-            <tr className={styles.isEmpty}>
-              <td className={styles.icon}>
-                <CgMenu className={styles.menuIcon} />
-              </td>
-              <td className={styles.wrong}>
-                <div className={styles.imgBox}>
-                  <img src="\images\icon\roomManager\room.png" />
-                </div>
-              </td>
-              <td>
-                <p>
-                  <strong>Phòng 2</strong>
-                </p>
-              </td>
-              <td>
-                <p>Tầng trệt</p>
-              </td>
-              <td>
-                <strong>
-                  1.500.000 <span>đ</span>
-                </strong>
-                <br />
-                <small className={styles.colorRed}>Chưa thu lần nào</small>
-              </td>
-              <td>
-                <strong>
-                  1.500.000 <span>đ</span>
-                </strong>
-                <br />
-                <small className={styles.colorRed}>Chưa thu tiền cọc</small>
-              </td>
-              <td className={styles.wrong}>
-                <strong>
-                  0 <span>đ</span>
-                </strong>
-              </td>
-              <td className={clsx(styles.user, styles.wrong)}>
-                <div className={styles.icon}>
-                  <CgUser />
-                </div>
-                <p>0/1 người</p>
-              </td>
-              <td>
-                <p>Ngày 1</p>
-              </td>
-              <td>
-                <p>1 tháng </p>
-              </td>
-              <td className={styles.wrong}>
-                <p>Không xác định</p>
-              </td>
-              <td className={styles.wrong}>
-                <p>Không xác định</p>
-              </td>
-              <td className={styles.wrong}>
-                <p className={clsx(styles.bgRedLight, styles.isActive)}>Đang trống</p>
-              </td>
-              <td className={styles.wrong}>
-                <p className={clsx(styles.bgGreenLight, styles.finance)}>Chờ kỳ thu tới</p>
-              </td>
-              <td className={styles.icon}>
-                <CgMoreVerticalAlt />
-              </td>
-            </tr>
-            <tr className={styles.isEmpty}>
-              <td className={styles.icon}>
-                <CgMenu className={styles.menuIcon} />
-              </td>
-              <td className={styles.wrong}>
-                <div className={styles.imgBox}>
-                  <img src="\images\icon\roomManager\room.png" />
-                </div>
-              </td>
-              <td>
-                <p>
-                  <strong>Phòng 3</strong>
-                </p>
-              </td>
-              <td>
-                <p>Tầng trệt</p>
-              </td>
-              <td>
-                <strong>
-                  1.500.000 <span>đ</span>
-                </strong>
-                <br />
-                <small className={styles.colorRed}>Chưa thu lần nào</small>
-              </td>
-              <td>
-                <strong>
-                  1.500.000 <span>đ</span>
-                </strong>
-                <br />
-                <small className={styles.colorRed}>Chưa thu tiền cọc</small>
-              </td>
-              <td className={styles.wrong}>
-                <strong>
-                  0 <span>đ</span>
-                </strong>
-              </td>
-              <td className={clsx(styles.user, styles.wrong)}>
-                <div className={styles.icon}>
-                  <CgUser />
-                </div>
-                <p>0/1 người</p>
-              </td>
-              <td>
-                <p>Ngày 1</p>
-              </td>
-              <td>
-                <p>1 tháng </p>
-              </td>
-              <td className={styles.wrong}>
-                <p>Không xác định</p>
-              </td>
-              <td className={styles.wrong}>
-                <p>Không xác định</p>
-              </td>
-              <td className={styles.wrong}>
-                <p className={clsx(styles.bgRedLight, styles.isActive)}>Đang trống</p>
-              </td>
-              <td className={styles.wrong}>
-                <p className={clsx(styles.bgGreenLight, styles.finance)}>Chờ kỳ thu tới</p>
-              </td>
-              <td className={styles.icon}>
-                <CgMoreVerticalAlt />
-              </td>
-            </tr>
+            {roomList.map((room, index) => {
+              return (
+                <tr key={index} className={room.cus ? '' : styles.isEmpty}>
+                  <td className={styles.icon}>
+                    <CgMenu className={styles.menuIcon} />
+                  </td>
+                  <td className={styles.disabled}>
+                    <div className={styles.imgBox}>
+                      <img src="\images\icon\roomManager\room.png" />
+                    </div>
+                  </td>
+                  <td>
+                    <p>
+                      <strong>{room.number}</strong>
+                    </p>
+                    <p>{room.cus ? room.cus : ''}</p>
+                    <small>
+                      {room.cus ? (room.usedApp ? 'Đã sử dụng app' : 'Chưa sử dụng app') : ''}
+                    </small>
+                  </td>
+                  <td>
+                    <p>{room.floor}</p>
+                  </td>
+                  <td>
+                    <strong>
+                      {room.price} <span>đ</span>
+                    </strong>
+                    <br />
+                    <small className={styles.colorRed}>
+                      {room.payRent ? 'Đã thu' : 'Chưa thu lần nào'}
+                    </small>
+                  </td>
+                  <td>
+                    <strong>
+                      {room.deposit}
+                      <span>đ</span>
+                    </strong>
+                    <br />
+                    <small className={styles.colorRed}>
+                      {room.payRentDeposit ? 'Đã thu tiền cọc' : 'Chưa thu tiền cọc'}
+                    </small>
+                  </td>
+                  <td className={styles.disabled}>
+                    <strong>
+                      {room.debt} <span>đ</span>
+                    </strong>
+                  </td>
+                  <td className={clsx(styles.user, styles.disabled)}>
+                    <div className={styles.icon}>
+                      <CgUser />
+                    </div>
+                    <p>
+                      {room.numPeople}/{room.totalPeople} người
+                    </p>
+                  </td>
+                  <td>
+                    <p>Ngày {room.startDate}</p>
+                  </td>
+                  <td>
+                    <p>{room.cycleCollect} tháng </p>
+                  </td>
+                  <td>
+                    <p>{room.endDate ? room.endDate : 'Không xác định'}</p>
+                  </td>
+                  <td className={styles.disabled}>
+                    <p>{room.moveInDate ? room.moveInDate : 'Không xác định'}</p>
+                  </td>
+                  <td className={styles.disabled}>
+                    <p className={clsx(room.status ? '' : styles.bgRedLight, styles.finance)}>
+                      {room.status ? 'Đang ở' : 'Đang trống'}
+                    </p>
+                  </td>
+                  <td className={styles.disabled}>
+                    <p className={styles.finance}>{room.finance}</p>
+                  </td>
+                  <td
+                    className={clsx(styles.icon, styles.last)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleFunc(index);
+                    }}
+                  >
+                    <CgMoreVerticalAlt />
+                  </td>
+                  <div
+                    className={clsx(styles.func, {
+                      [styles.active]: index === isActiveIndex,
+                    })}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <div className={clsx(styles.empty, styles.colorGreen)}>
+                      <div className={styles.iconBox}></div>
+                      <span>Hợp đồng mới</span>
+                    </div>
+                    <div className={styles.choice}>
+                      <div className={styles.iconBox}></div>
+                      <span>Lập hóa đơn</span>
+                    </div>
+                    <div className={clsx(styles.choice, styles.empty)}>
+                      <div className={styles.iconBox}></div>
+                      <span>Chi tiết phòng </span>
+                    </div>
+                    <div className={styles.empty}>
+                      <div className={styles.iconBox}></div>
+                      <span>Cọc giữ chỗ</span>
+                    </div>
+                    <div className={styles.choice}>
+                      <div className={styles.iconBox}></div>
+                      <span>Danh sách khách thuê</span>
+                    </div>
+                    <div className={styles.choice}>
+                      <div className={styles.iconBox}></div>
+                      <span>Chuyển phòng</span>
+                    </div>
+                    <div className={styles.choice}>
+                      <div className={styles.iconBox}></div>
+                      <span>Báo kết thúc hợp đồng phòng</span>
+                    </div>
+                    <div className={clsx(styles.choice, styles.empty)}>
+                      <div className={styles.iconBox}></div>
+                      <span>Cài dặt dịch vụ</span>
+                    </div>
+                    <div className={styles.choice}>
+                      <div className={styles.iconBox}></div>
+                      <span>Kết thúc hợp đồng phòng</span>
+                    </div>
+                    <div className={clsx(styles.choice, styles.empty)}>
+                      <div className={styles.iconBox}></div>
+                      <span>Thiết lập tài sản</span>
+                    </div>
+                    <div className={styles.choice}>
+                      <div className={styles.iconBox}></div>
+                      <span>Xem văn bản hợp đồng</span>
+                    </div>
+                    <div className={styles.choice}>
+                      <div className={styles.iconBox}></div>
+                      <span>Quản lý xe</span>
+                    </div>
+                    <div className={styles.choice}>
+                      <div className={styles.iconBox}></div>
+                      <span>In văn bản hợp đồng</span>
+                    </div>
+                    <div className={clsx(styles.choice, styles.colorGreen)}>
+                      <div className={styles.iconBox}></div>
+                      <span>Ghi chú</span>
+                    </div>
+                    <div className={styles.choice}>
+                      <div className={styles.iconBox}></div>
+                      <span>Chia sẻ văn bản hợp đồng</span>
+                    </div>
+                    <div className={clsx(styles.choice, styles.empty, styles.colorRed)}>
+                      <div className={styles.iconBox}></div>
+                      <span>Xóa phòng</span>
+                    </div>
+                    <div className={styles.choice}>
+                      <div className={styles.iconBox}></div>
+                      <span>Chia sẻ mã kết nối</span>
+                    </div>
+                    <div
+                      className={clsx(styles.choice, styles.empty)}
+                      onClick={() => {
+                        handleFunc(false);
+                      }}
+                    >
+                      <div className={styles.iconBox}></div>
+                      <span>Đóng menu</span>
+                    </div>
+                  </div>
+                </tr>
+              );
+            })}
           </table>
         </div>
       </div>
